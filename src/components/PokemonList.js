@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { PokemonListContext } from "../contexts/PokemonListContext"
 import usePokemonList from '../hooks/usePokemonList';
 
-//hello
+// Faizah
 const PokemonList = () => {
 
     const {pokemonList, offset, limit} = useContext(PokemonListContext)
