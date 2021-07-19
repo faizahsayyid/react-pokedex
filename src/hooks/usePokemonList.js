@@ -24,7 +24,7 @@ const usePokemonList = () => {
         axios({
             method: 'GET',
             url: 'https://pokeapi.co/api/v2/pokemon',
-            params: { offset, limit: LIMIT_INCREMENT}
+            params: { offset, limit: LIMIT_INCREMENT }
         }).then((res) => {
             updatePokemonList(res.data.results)
             setHasMore(parseInt(res.data.count) - offset > 0)
