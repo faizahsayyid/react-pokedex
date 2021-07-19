@@ -3,9 +3,11 @@ import { PokemonListProvider } from './contexts/PokemonListContext'
 
 function App() {
   return (
-    <PokemonListProvider>
-      <PokemonList />
-    </PokemonListProvider>
+    <>
+      <PokemonListProvider>
+        <PokemonList />
+      </PokemonListProvider>
+    </>
   );
 }
 
