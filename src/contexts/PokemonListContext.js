@@ -62,6 +62,7 @@ export const PokemonListProvider = ({ children }) => {
             pokemonList: state.pokemonList,
             error: state.error,
             loading: state.loading,
+            hasMore: state.hasMore,
             updateOffset,
             updatePokemonList,
             setError,
