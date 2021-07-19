@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: hsl(60, 83%, 86%);
+    width: max(350px, 90%);
+    height: min(75px, 10vh);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin: 5px 0;
+    padding: 10px 30px;
+    border-radius: 50px 20px 20px 50px;
+    scroll-snap-align: end;
+}
+
+.pokeball, .index {
+    margin-right: 30px;
+}

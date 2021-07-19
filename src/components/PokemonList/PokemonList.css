@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.pokemon-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    scroll-snap-type: y mandatory;
+    height: min(565px, 80vh);
+    overflow-y: scroll;
+}
+
+.load-err-container {
+    display: flex;
+    flex-direction: column;
+    width: max(450px, 45%);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}

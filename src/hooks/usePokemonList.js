@@ -3,12 +3,12 @@ import { useEffect, useContext} from 'react'
 import { PokemonListContext } from '../contexts/PokemonListContext'
 import { LIMIT_INCREMENT } from '../contexts/PokemonListActions'
 
-const usePokemonList = (offset) => {
+const usePokemonList = () => {
     const {
+        offset,
         setLoading,
         setError,
-        setHasMore, 
-        pokemonList, 
+        setHasMore,
         updatePokemonList,
         resetPokemonList
     } = useContext(PokemonListContext)
@@ -24,11 +24,10 @@ const usePokemonList = (offset) => {
         axios({
             method: 'GET',
             url: 'https://pokeapi.co/api/v2/pokemon',
-            params: { offset, limit: offset + LIMIT_INCREMENT}
+            params: { offset, limit: LIMIT_INCREMENT}
         }).then((res) => {
             updatePokemonList(res.data.results)
-            console.log(pokemonList)
-            setHasMore(res.data.count > 0)
+            setHasMore(parseInt(res.data.count) - offset > 0)
             setLoading(false)
         }).catch((err) => {
             setError(true)
