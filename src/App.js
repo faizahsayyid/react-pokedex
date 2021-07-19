@@ -4,9 +4,11 @@ import PokemonSideImage from './components/PokemonSideImage/PokemonSideImage';
 
 function App() {
   return (
-    <PokemonListProvider>
-      <PokemonList />
-    </PokemonListProvider>
+    <>
+      <PokemonListProvider>
+        <PokemonList />
+      </PokemonListProvider>
+    </>
   );
 }
 
