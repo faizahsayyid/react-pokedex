@@ -8,7 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: hsl(60, 83%, 86%);
+    background-color: var(--light-colour-2);
+    color: var(--light-text-colour);
     width: max(350px, 90%);
     height: min(75px, 10vh);
     font-size: clamp(1rem, 2vw, 1.5rem);

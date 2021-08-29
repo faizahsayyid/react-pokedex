@@ -7,6 +7,7 @@ function App() {
     <>
       <PokemonListProvider>
         <PokemonList />
+        <PokemonSideImage />
       </PokemonListProvider>
     </>
   );
