@@ -1,51 +1,39 @@
-import { useContext, useRef, useCallback, useState } from "react"
+import { useContext, useRef, useCallback } from "react"
 import { PokemonListContext } from "../../contexts/PokemonListContext"
 import usePokemonList from '../../hooks/usePokemonList';
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import PokemonItem from "../PokemonItem/PokemonItem";
 import "./PokemonList.css";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
+import { Link as ScrollLink, Element as ScrollElement} from 'react-scroll'
+import { useHistory } from 'react-router-dom'
 
 const PokemonList = () => {
 
-    const {pokemonList, loading, error, hasMore, updateOffset} = useContext(PokemonListContext)
+    const {pokemonList, loading, error, hasMore, updateOffset, setPokemonOnDisplay} = useContext(PokemonListContext)
 
-    const observedPokemonItems = useRef(0)
-
-    const getCenterPokemonObserver = useRef()
     const lastPokemonObserver = useRef()
+    const listCenter = useRef()
 
-    const centerPokemon = useCallback(element => {
-        if (!observedPokemonItems.current) {
-            observedPokemonItems.current = 0
+    const windowDimensions = useWindowDimensions()
+
+    let history = useHistory()
+
+    const getListCenter = useCallback((el) => {
+        if (el) {
+            listCenter.current = -(el.offsetHeight / 2)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [windowDimensions])
 
-        if(!getCenterPokemonObserver.current) {
-            getCenterPokemonObserver.current = new IntersectionObserver((entries, observer) => {
-                
-                console.log('here')
+    const handleSetActice = (to) => {
+        setPokemonOnDisplay(to)
+    }
 
-                if(observedPokemonItems.current <= 7) {
-                    const intersectingEntries = entries.filter(entry => entry.isIntersecting)
-                    const midIndex = Math.floor(intersectingEntries.length / 2)
-                    observedPokemonItems.current -= 1
-                    observer.observe()
-    
-                    if (
-                        intersectingEntries[midIndex] &&
-                        intersectingEntries[midIndex].target
-                    ) {
-                        console.log(intersectingEntries[midIndex].target)
-                    }
-                }
-            }, {})
-        }
-
-        if (observedPokemonItems.current < 7 && element) {
-            observedPokemonItems.current += 1
-            getCenterPokemonObserver.current.observe(element)
-        }
-    }, [])
+    const navigateToDetails = (pokemon) => {
+        history.push(`/${pokemon}`)
+    }
 
     const lastPokemonElement = useCallback(element => {
         if (loading) return 
@@ -68,12 +56,49 @@ const PokemonList = () => {
 
     return (
         <div className="load-err-container">
-            <div className="pokemon-list-container">
+            <div className="pokemon-list-container" id="pokemon-list-container" ref={getListCenter}>
+                <PokemonItem isVisible={false}/>
+                <PokemonItem isVisible={false}/>
+                <PokemonItem isVisible={false}/>
+                
                 {pokemonList.map( (p, index) => {
                     if(pokemonList.length === index + 1) {
-                        return <PokemonItem innerRef={lastPokemonElement} key={index} index={index + 1} pokemon={p}></PokemonItem>
+                        return (
+                            <div key={index}>
+                            <ScrollLink to={p.name} 
+                                spy={true} 
+                                onSetActive={handleSetActice} 
+                                containerId="pokemon-list-container"
+                                offset={listCenter.current}
+                                className="hide-scroll-components"
+                            />
+                            <ScrollElement name={p.name} onClick={() => navigateToDetails(p.name)}>
+                                <PokemonItem innerRef={lastPokemonElement}
+                                    key={index} 
+                                    index={index + 1}
+                                    pokemon={p} 
+                                    isVisible={true}/>
+                            </ScrollElement>
+                            </div>
+                        )
                     } else {
-                        return <PokemonItem innerRef={centerPokemon} key={index} index={index + 1} pokemon={p}></PokemonItem>
+                        return (
+                            <div key={index}>
+                            <ScrollLink to={p.name} 
+                                spy={true} 
+                                onSetActive={handleSetActice} 
+                                containerId="pokemon-list-container"
+                                offset={listCenter.current}
+                                className="hide-scroll-components"
+                            />                            
+                            <ScrollElement name={p.name} onClick={() => navigateToDetails(p.name)}>
+                                <PokemonItem key={index} 
+                                    index={index + 1}
+                                    pokemon={p} 
+                                    isVisible={true}/>
+                            </ScrollElement>
+                            </div>
+                        )
                     }
                 })}
             </div>

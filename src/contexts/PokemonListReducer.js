@@ -32,6 +32,11 @@ const PokemonListReducer = (state, action) => {
                 ...state,
                 pokemonList: []
             }
+        case POKEMON_LIST_ACTIONS.SET_POKEMON_ON_DISPLAY: 
+            return {
+                ...state, 
+                pokemonOnDisplay: action.payload
+            }
         default:
             return state
     }

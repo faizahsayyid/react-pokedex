@@ -1,14 +1,20 @@
-import PokemonList from './components/PokemonList/PokemonList';
-import { PokemonListProvider } from './contexts/PokemonListContext'
-import PokemonSideImage from './components/PokemonSideImage/PokemonSideImage';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import PokemonListView from './components/PokemonListView/PokemonListView';
+import Header from './components/Header/Header'
+import Example from './components/Example';
 
 function App() {
   return (
     <>
-      <PokemonListProvider>
-        <PokemonList />
-        <PokemonSideImage />
-      </PokemonListProvider>
+      <Header />
+      <Router>
+        <Route exact path='/'>
+          <PokemonListView />
+        </Route>
+        <Route exact path='/:pokemon'>
+          <Example />
+        </Route>
+      </Router>
     </>
   );
 }

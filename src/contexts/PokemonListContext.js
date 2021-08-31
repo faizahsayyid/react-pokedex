@@ -8,6 +8,7 @@ const initialState = {
     error: false,
     loading: true,
     hasMore: true,
+    pokemonOnDisplay: "bulbasaur"
 }
 
 export const PokemonListContext = createContext(initialState)
@@ -55,6 +56,12 @@ export const PokemonListProvider = ({ children }) => {
         })
     }
 
+    const setPokemonOnDisplay = (pokemonToDisplay) => {
+        dispatch({
+            type: POKEMON_LIST_ACTIONS.SET_POKEMON_ON_DISPLAY,
+            payload: pokemonToDisplay
+        })
+    }
 
     return (
         <PokemonListContext.Provider value={{
@@ -63,12 +70,14 @@ export const PokemonListProvider = ({ children }) => {
             error: state.error,
             loading: state.loading,
             hasMore: state.hasMore,
+            pokemonOnDisplay: state.pokemonOnDisplay,
             updateOffset,
             updatePokemonList,
             setError,
             setHasMore,
             setLoading,
-            resetPokemonList
+            resetPokemonList,
+            setPokemonOnDisplay,
         }}>
             {children}
         </PokemonListContext.Provider>
