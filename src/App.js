@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import PokemonListView from './components/PokemonListView/PokemonListView';
 import Header from './components/Header/Header'
-import Example from './components/Example';
+import PokemonDetails from './components/PokemonDetails/PokemonDetails';
+import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 function App() {
   return (
@@ -12,7 +13,10 @@ function App() {
           <PokemonListView />
         </Route>
         <Route exact path='/:pokemon'>
-          <Example />
+          <PokemonDetails />
+        </Route>
+        <Route exact path='/not-found'>
+          <NotFoundPage />
         </Route>
       </Router>
     </>
