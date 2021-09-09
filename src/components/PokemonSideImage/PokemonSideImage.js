@@ -30,9 +30,8 @@ const PokemonSideImage = () => {
           <LoadingSpinner height={240} width={240} />
         ) : (
           <img
+            className="psi-sprite"
             src={pokemonDetails.sprites.front_default}
-            width="240"
-            height="240"
             alt={`${pokemonDetails.name} sprite`}
           />
         )}

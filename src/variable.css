@@ -1,18 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto+Mono:wght@400;600&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Roboto+Mono:wght@400;600&display=swap");
 
 :root {
-    --dark-colour-5: #956FA6;
-    --dark-colour-4: #4F1A73;
-    --dark-colour-3: #3D1259;
-    --dark-colour-2: #2A0940;
-    --dark-colour-1: #180326;
-    --dark-text-colour: hsl(281, 24%, 84%);
+  --dark-colour-5: #956fa6;
+  --dark-colour-4: #4f1a73;
+  --dark-colour-3: #3d1259;
+  --dark-colour-2: #2a0940;
+  --dark-colour-1: #180326;
+  --dark-text-colour: hsl(281, 24%, 84%);
 
-    --light-colour-1: #F2F2F2;
-    --light-colour-2: #F2E750;
-    --light-colour-3: #F2C849;
-    --light-colour-4: #F29E38;
-    --light-colour-5: #F25430;
-    --light-text-colour: black;
+  --light-colour-1: #f2f2f2;
+  --light-colour-2: #f2e750;
+  --light-colour-3: #f2c849;
+  --light-colour-4: #f29e38;
+  --light-colour-5: #f25430;
+  --light-text-colour: #333;
 }
