@@ -3,10 +3,11 @@ import PokemonListView from "./components/PokemonListView/PokemonListView";
 import Header from "./components/Header/Header";
 import PokemonDetails from "./components/PokemonDetails/PokemonDetails";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
+import { SettingsProvider } from "./contexts/SettingsContext";
 
 function App() {
   return (
-    <>
+    <SettingsProvider>
       <Header />
       <Router>
         <Route exact path="/">
@@ -19,7 +20,7 @@ function App() {
           <PokemonDetails />
         </Route>
       </Router>
-    </>
+    </SettingsProvider>
   );
 }
 

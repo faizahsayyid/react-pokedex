@@ -1,8 +1,22 @@
+import { useContext } from "react";
 import ReactDOM from "react-dom";
-import { FaTimes, FaCheck } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import "./SettingsModal.css";
+import Toggle from "../Toggle/Toggle";
+import { SettingsContext } from "../../contexts/SettingsContext";
 
 const SettingsModal = ({ open, onClose }) => {
+  const {
+    isDarkModeOn,
+    isMusicOn,
+    name,
+    toggleIsDarkModeOn,
+    toggleIsMusicOn,
+    updateName,
+  } = useContext(SettingsContext);
+
+  console.log({ toggleIsMusicOn, isMusicOn });
+
   if (!open) {
     return null;
   } else {
@@ -15,15 +29,20 @@ const SettingsModal = ({ open, onClose }) => {
             <h2 className="settings-title">Settings</h2>
           </header>
           <label htmlFor="name" className="settings-pokedex-name">
-            Who's Pokedex is this?
+            Your Name:
             <input type="text" name="name" placeholder="Enter your name..." />
-            <button type="button">Save</button>
+            <button>Save</button>
           </label>
           <div className="settings-toggle">
-            <p>Dark Mode</p>
+            <p>Dark Mode:</p>
+            <Toggle
+              isActive={isDarkModeOn}
+              toggleIsActive={toggleIsDarkModeOn}
+            />
           </div>
           <div className="settings-toggle">
-            <p>Music</p>
+            <p>Music:</p>
+            <Toggle isActive={isMusicOn} toggleIsMusicOn={toggleIsMusicOn} />
           </div>
         </div>
       </>,

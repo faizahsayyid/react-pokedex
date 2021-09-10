@@ -43,6 +43,10 @@
 }
 
 .settings-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 230px;
 }
 
 .settings-pokedex-name {
@@ -70,6 +74,7 @@
   font-size: 1rem;
   text-transform: uppercase;
   background-color: var(--light-colour-2);
+  cursor: pointer;
 }
 
 .settings-pokedex-name button:hover {
