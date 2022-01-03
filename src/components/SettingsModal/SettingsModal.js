@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ReactDOM from "react-dom";
 import { FaTimes } from "react-icons/fa";
 import "./SettingsModal.css";
@@ -15,7 +15,16 @@ const SettingsModal = ({ open, onClose }) => {
     updateName,
   } = useContext(SettingsContext);
 
-  console.log({ toggleIsMusicOn, isMusicOn });
+  const [nameField, setNameField] = useState(name);
+
+  const handleNameChanges = (e) => {
+    e.preventDefault();
+    setNameField(e.target.value);
+  };
+
+  const saveName = () => {
+    updateName(nameField);
+  };
 
   if (!open) {
     return null;
@@ -30,8 +39,13 @@ const SettingsModal = ({ open, onClose }) => {
           </header>
           <label htmlFor="name" className="settings-pokedex-name">
             Your Name:
-            <input type="text" name="name" placeholder="Enter your name..." />
-            <button>Save</button>
+            <input
+              type="text"
+              name="name"
+              placeholder={nameField ? nameField : "Enter your name..."}
+              onChange={(e) => handleNameChanges(e)}
+            />
+            <button onClick={saveName}>Save</button>
           </label>
           <div className="settings-toggle">
             <p>Dark Mode:</p>
@@ -42,7 +56,7 @@ const SettingsModal = ({ open, onClose }) => {
           </div>
           <div className="settings-toggle">
             <p>Music:</p>
-            <Toggle isActive={isMusicOn} toggleIsMusicOn={toggleIsMusicOn} />
+            <Toggle isActive={isMusicOn} toggleIsActive={toggleIsMusicOn} />
           </div>
         </div>
       </>,

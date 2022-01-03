@@ -1,9 +1,7 @@
-@import url("../../variable.css");
-
 .main-header {
   height: 10vh;
   width: 100vw;
-  background-color: var(--light-colour-5);
+  background-color: var(--colour-5);
   color: white;
   position: fixed;
   top: 0;
@@ -18,7 +16,7 @@
 .pokemon-title {
   font-family: Aldrich;
   font-size: 2rem;
-  color: var(--light-colour-2);
+  color: var(--colour-2);
   letter-spacing: 2px;
   margin: 0 20px;
   padding: 5px 15px;

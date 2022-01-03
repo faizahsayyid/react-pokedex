@@ -17,7 +17,6 @@ const usePokemonDetails = (pokemon) => {
     axios
       .get(url)
       .then((res) => {
-        console.log(res.data);
         toArray.push(res.data);
         setPokemonType(res.data.types[0].type.name);
         setPokemonData(toArray);

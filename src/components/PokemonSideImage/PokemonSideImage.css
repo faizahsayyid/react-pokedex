@@ -1,10 +1,9 @@
-@import url("../../variable.css");
-
 .pokemon-side-image-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: var(--text-colour);
 }
 
 .pokemon-display-details {
@@ -13,10 +12,10 @@
   align-items: center;
   padding: 10px;
   margin: 40px 0;
-  border-top: solid var(--light-colour-5) 5px;
-  border-bottom: solid var(--light-colour-5) 5px;
-  border-left: solid var(--light-colour-5) 20px;
-  border-right: solid var(--light-colour-5) 20px;
+  border-top: solid var(--colour-5) 5px;
+  border-bottom: solid var(--colour-5) 5px;
+  border-left: solid var(--colour-5) 20px;
+  border-right: solid var(--colour-5) 20px;
   height: 75px;
   width: 350px;
   text-align: center;
@@ -36,9 +35,9 @@
 
 .pokemon-image {
   position: relative;
-  border: solid var(--light-colour-4) 5px;
+  border: solid var(--colour-4) 5px;
   border-radius: 20px;
-  box-shadow: 0 0 0 10px var(--light-colour-2);
+  box-shadow: 0 0 0 10px var(--colour-2);
 }
 
 .psi-sprite {
@@ -48,13 +47,13 @@
 
 .bar {
   position: absolute;
-  color: black;
+  /* color: black; */
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(242, 242, 242, 1) 35%,
-    rgba(242, 242, 242, 1) 50%,
-    rgba(242, 242, 242, 1) 65%,
+    var(--bar-colour) 35%,
+    var(--bar-colour) 50%,
+    var(--bar-colour) 65%,
     rgba(255, 255, 255, 0) 100%
   );
   height: 20px;

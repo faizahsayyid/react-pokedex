@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Toggle.css";
 
-const Toggle = (isActive, toggleIsActive) => {
+const Toggle = ({ isActive, toggleIsActive }) => {
   const [classes, setClasses] = useState({
     toggle: "toggle",
     slider: "toggle-slider",
   });
+
+  useEffect(() => {
+    setClasses(
+      isActive
+        ? {
+            toggle: "toggle toggle-active",
+            slider: "toggle-slider toggle-slider-active",
+          }
+        : {
+            toggle: "toggle",
+            slider: "toggle-slider",
+          }
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggle = () => {
     if (!isActive) {
@@ -19,7 +34,6 @@ const Toggle = (isActive, toggleIsActive) => {
         slider: "toggle-slider toggle-slide-backward-animation",
       });
     }
-    console.log(toggleIsActive);
     toggleIsActive();
   };
 

@@ -1,7 +1,7 @@
 .toggle {
   height: 30px;
   width: 60px;
-  background-color: var(--light-colour-1);
+  background-color: var(--colour-1);
   border-radius: 20px;
   position: relative;
 }
@@ -19,7 +19,7 @@
 }
 
 .toggle-active {
-  background-color: var(--light-colour-5);
+  background-color: var(--colour-5);
   animation: toggle-forward 1s ease;
 }
 
@@ -46,10 +46,10 @@
 
 @keyframes toggle-forward {
   0% {
-    background-color: var(--light-colour-1);
+    background-color: var(--colour-1);
   }
   100% {
-    background-color: var(--light-colour-5);
+    background-color: var(--colour-5);
   }
 }
 
@@ -64,9 +64,9 @@
 
 @keyframes toggle-backward {
   0% {
-    background-color: var(--light-colour-5);
+    background-color: var(--colour-5);
   }
   100% {
-    background-color: var(--light-colour-1);
+    background-color: var(--colour-1);
   }
 }
