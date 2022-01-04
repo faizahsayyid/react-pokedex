@@ -4,15 +4,13 @@ import Header from "../../components/Header/Header";
 import PokemonDetails from "../../components/PokemonDetails/PokemonDetails";
 import NotFoundPage from "../../components/NotFoundPage/NotFoundPage";
 import useTheme from "../../hooks/useTheme";
-import useMusic from "../../hooks/useMusic";
 import "./AppContainer.css";
 
 function AppContainer() {
-  // var audio = new Audio("/pokemon-copy-right-free-music.mp3");
-  // console.log(audio);
   useTheme();
+
   return (
-    <>
+    <div>
       <Header />
       <Router>
         <Route exact path="/">
@@ -25,7 +23,7 @@ function AppContainer() {
           <PokemonDetails />
         </Route>
       </Router>
-    </>
+    </div>
   );
 }
 

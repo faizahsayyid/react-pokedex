@@ -6,10 +6,13 @@ const stringToBoolean = (str) => {
   return str === "true";
 };
 
+var audio = new Audio("/music.mp3");
+audio.loop = true;
+
 const initialState = {
   isDarkModeOn: stringToBoolean(localStorage.getItem("isDarkModeOn")),
   name: localStorage.getItem("name"),
-  isMusicOn: stringToBoolean(localStorage.getItem("isMusicOn")),
+  isMusicOn: false,
 };
 
 export const SettingsContext = createContext(initialState);
@@ -28,7 +31,11 @@ export const SettingsProvider = ({ children }) => {
     dispatch({
       type: SETTINGS_ACTIONS.TOGGLE_IS_MUSIC_ON,
     });
-    localStorage.setItem("isMusicOn", !state.isMusicOn);
+    if (state.isMusicOn) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
   };
 
   const updateName = (updatedName) => {
