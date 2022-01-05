@@ -3,23 +3,21 @@ import axios from "axios";
 import { useHistory } from "react-router";
 
 const usePokemonDetails = (pokemon) => {
-  const [pokemonData, setPokemonData] = useState([]);
+  const [pokemonData, setPokemonData] = useState();
   const [pokemonType, setPokemonType] = useState("");
   const [loading, setLoading] = useState(true);
 
   const history = useHistory();
 
   const getPokemon = () => {
-    const toArray = [];
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
 
     setLoading(true);
     axios
       .get(url)
       .then((res) => {
-        toArray.push(res.data);
         setPokemonType(res.data.types[0].type.name);
-        setPokemonData(toArray);
+        setPokemonData(res.data);
         setLoading(false);
       })
       .catch((e) => {

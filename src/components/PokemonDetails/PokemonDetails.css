@@ -1,4 +1,12 @@
-.PokemonDetails {
+.container {
+  margin-top: 100px;
+  font: Roboto Mono;
+}
+
+.img-container {
+}
+
+/* .PokemonDetails {
   text-align: center;
 }
 
@@ -10,7 +18,7 @@
   height: calc(90vh - 100px);
 }
 
-/* DivTable.com */
+DivTable.com 
 .divTable {
   display: table;
   max-width: 20em;
@@ -52,7 +60,6 @@
 .container {
   display: flex;
   opacity: 0.9;
-  background-color: whitesmoke;
   justify-content: center;
 }
 
@@ -67,3 +74,4 @@ input {
   display: block;
   margin: 2rem auto;
 }
+*/

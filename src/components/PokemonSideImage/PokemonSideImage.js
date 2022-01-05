@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import usePokemonOnDisplay from "../../hooks/usePokemonOnDisplay";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./PokemonSideImage.css";
-import typeColours from "../../assets/type-colours.json";
 import Error from "../Error/Error";
 import { PokemonListContext } from "../../contexts/PokemonListContext";
+import Types from "../Types/Types";
 
 const PokemonSideImage = () => {
   const { loading, pokemonDetails } = usePokemonOnDisplay();
@@ -38,16 +38,7 @@ const PokemonSideImage = () => {
       </div>
       <div className="pokemon-display-details taller">
         Types:
-        {!loading &&
-          pokemonDetails.types.map((typeObject, index) => (
-            <span
-              key={index}
-              className="type-badge"
-              style={{ backgroundColor: typeColours[typeObject.type.name] }}
-            >
-              {typeObject.type.name}
-            </span>
-          ))}
+        {!loading && <Types typesCollection={pokemonDetails.types} />}
       </div>
     </div>
   );
