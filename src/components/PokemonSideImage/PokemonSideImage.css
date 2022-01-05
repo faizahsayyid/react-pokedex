@@ -88,15 +88,6 @@
   bottom: 20px;
 }
 
-.type-badge {
-  margin: 0 10px;
-  font-size: clamp(0.5rem, 1.5vw, 1rem);
-  background-color: #68a090;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-}
-
 @media (max-width: 700px) {
   .pokemon-side-image-container {
     display: none;
