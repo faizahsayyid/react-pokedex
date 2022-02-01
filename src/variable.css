@@ -10,14 +10,14 @@
   --bg-colour: #0c0411; */
 
   /* light colour pallete */
-  /* --colour-1: #f2f2f2;
+  --colour-1: #f2f2f2;
   --colour-2: #f2e750;
   --colour-3: #f2c849;
   --colour-4: #f29e38;
   --colour-5: #f25430;
-  --text-colour: #333;
+  --text-colour: rgb(0, 0, 0);
   --bg-colour: white;
-  --bar-colour: rgba(242, 242, 242, 1); */
+  --bar-colour: rgba(242, 242, 242, 1);
 
   /* dark colour pallete */
   --colour-5: #956fa6;

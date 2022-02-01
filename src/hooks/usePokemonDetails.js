@@ -6,6 +6,7 @@ const usePokemonDetails = (pokemon) => {
   const [pokemonData, setPokemonData] = useState();
   const [pokemonType, setPokemonType] = useState("");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false)
 
   const history = useHistory();
 
@@ -17,10 +18,12 @@ const usePokemonDetails = (pokemon) => {
       .get(url)
       .then((res) => {
         setPokemonType(res.data.types[0].type.name);
+        console.log(res.data);
         setPokemonData(res.data);
         setLoading(false);
       })
       .catch((e) => {
+        setError(true);
         setLoading(false);
         history.push("/not-found");
       });
@@ -29,7 +32,7 @@ const usePokemonDetails = (pokemon) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(getPokemon, []);
 
-  return { pokemonData, pokemonType, loading };
+  return { pokemonData, pokemonType, loading, error };
 };
 
 export default usePokemonDetails;
