@@ -8,7 +8,12 @@ const PokemonSideImage = () => {
   const { error, pokemonOnDisplay } = useContext(PokemonListContext);
 
   return (
-    <PokemonImage loading={loading} pokemonDetails={pokemonDetails} error={error} pokemonOnDisplay={pokemonOnDisplay}/>
+    <PokemonImage
+      loading={loading}
+      pokemonDetails={pokemonDetails}
+      error={error}
+      pokemonOnDisplay={pokemonOnDisplay}
+    />
   );
 };
 

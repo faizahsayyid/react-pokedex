@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./PokemonDetails.css";
 import usePokemonDetails from "../../hooks/usePokemonDetails";
 import { Link, useParams } from "react-router-dom";
