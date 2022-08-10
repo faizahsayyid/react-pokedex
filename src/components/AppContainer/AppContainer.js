@@ -11,8 +11,8 @@ function AppContainer() {
 
   return (
     <div>
-      <Header />
       <Router>
+        <Header />
         <Route exact path="/">
           <PokemonListView />
         </Route>
